@@ -2,12 +2,17 @@
 #include <stdbool.h>
 
 
+/**
+* my_is_numeric - Check if a string consists only of numeric characters
+* @str: The string to check
+*
+* Return: true if the string is numeric, false otherwise
+*/
 bool my_is_numeric(char *str)
 {
 	int i;
 
 	for (i = 0; str[i] != '\0'; i++)
-
 	{
 		if (str[i] < '0' || str[i] > '9')
 		{
@@ -16,7 +21,6 @@ bool my_is_numeric(char *str)
 	}
 	return (true);
 }
-
 
 /**
 * handle_exit - Handles the "exit" command
