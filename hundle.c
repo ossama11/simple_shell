@@ -1,4 +1,22 @@
 #include "main.h"
+#include <stdbool.h>
+
+
+bool my_is_numeric(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			return (false);
+		}
+	}
+	return (true);
+}
+
 
 /**
 * handle_exit - Handles the "exit" command
@@ -11,9 +29,20 @@ void handle_exit(char **argv)
 	{
 		if (argv[1] != NULL)
 		{
-			int status = my_atoi(argv[1]);
+			int status;
 
-			exit(status);
+			if (my_is_numeric(argv[1]))
+			{
+				status = my_atoi(argv[1]);
+			}
+			else
+			{
+				write(STDERR_FILENO, "Invalid exit status: ", 21);
+				write(STDERR_FILENO, argv[1], my_strlen(argv[1]));
+				write(STDERR_FILENO, "\n", 1);
+				return;
+			}
+			exit(status % 256);
 		}
 		else
 		{
