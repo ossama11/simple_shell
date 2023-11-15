@@ -1,50 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "main.h"
 
-/**
-* main - main function for this simple shell
-*
-* Return: 0 on success
-*/
+#define MAX_INPUT_SIZE 1024
+
 int main(void)
 {
-	char *cmd = NULL;
-	size_t cmd_len = 0;
-	ssize_t read;
-	char *argv[MAX_NUM_ARGS];
+	char input[MAX_INPUT_SIZE];
 
-	char *full_path;
+	char *args[10];
 
-	while (1)
-	{
-		if (checker())
-			write(STDOUT_FILENO, PROMPT, my_strlen(PROMPT));
+	int status;
 
-		read = getline(&cmd, &cmd_len, stdin);
-		if (read == -1)
+	int i = 0;
+
+	char *token;
+
+	do {
+		printf("$ ");
+		fgets(input, sizeof(input), stdin);
+		input[strcspn(input, "\n")] = '\0';
+
+		token = strtok(input, " ");
+		while (token != NULL && i < 10)
 		{
-			write(STDOUT_FILENO, "\n", 1);
-			exit(EXIT_SUCCESS);
+			args[i++] = token;
+			token = strtok(NULL, " ");
 		}
+		args[i] = NULL;
 
-		if (cmd[read - 1] == '\n')
-			cmd[read - 1] = '\0';
+		status = execute(args);
 
-		if (my_strlen(cmd) == 0)
-			continue;
-
-		parse_command(cmd, argv);
-		handle_exit(argv);
-		handle_env(argv);
-
-		full_path = get_full_path(argv);
-		if (full_path == NULL)
-			continue;
-
-		if (run_command(argv, full_path))
-			return (1);
-
-		free(full_path);
-	}
+	} while (status);
 
 	return (0);
 }
