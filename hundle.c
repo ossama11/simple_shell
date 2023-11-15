@@ -8,7 +8,18 @@
 void handle_exit(char **argv)
 {
 	if (my_strcmp(argv[0], "exit") == 0)
-		exit(EXIT_SUCCESS);
+	{
+		if (argv[1] != NULL)
+		{
+			int status = my_atoi(argv[1]);
+
+			exit(status);
+		}
+		else
+		{
+			exit(EXIT_SUCCESS);
+		}
+	}
 }
 
 /**
