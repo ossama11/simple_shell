@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-* run_command - executes a command
+* run_command - executes command
 *
-* @argv: the array containing the program and arguments
+* @argv: array containing the program and arguments
 * @full_path: the full path of the program
 *
-* Return: 0 on success, 1 on error
+* Return: 0 on success
 */
 int run_command(char **argv, char *full_path)
 {
@@ -21,13 +21,13 @@ int run_command(char **argv, char *full_path)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(full_path, argv, NULL) == -1)  /* Execute command */
+		if (execve(full_path, argv, NULL) == -1)
 			perror(argv[0]);
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		wait(&status);  /* Wait for child process to finish */
+		wait(&status);
 	}
 
 	return (0);

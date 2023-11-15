@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
-* main - main function for the shell
+* main - main function for this simple shell
 *
 * Return: 0 on success
 */
 int main(void)
 {
 	char *cmd = NULL;
+
 	size_t cmd_len = 0;
 	ssize_t read;
 	char *argv[MAX_NUM_ARGS];
@@ -20,17 +21,17 @@ int main(void)
 			write(STDOUT_FILENO, PROMPT, my_strlen(PROMPT));
 
 		read = getline(&cmd, &cmd_len, stdin);
-		if (read == -1) /* End of file (Ctrl+D) */
+		if (read == -1)
 		{
 			write(STDOUT_FILENO, "\n", 1);
 			exit(EXIT_SUCCESS);
 		}
 
 		if (cmd[read - 1] == '\n')
-			cmd[read - 1] = '\0'; /* Remove newline character */
+			cmd[read - 1] = '\0';
 
 		if (my_strlen(cmd) == 0)
-			continue; /* Empty command, just print prompt again */
+			continue;
 
 		parse_command(cmd, argv);
 		handle_exit(argv);
@@ -45,6 +46,5 @@ int main(void)
 
 		free(full_path);
 	}
-
 	return (0);
 }

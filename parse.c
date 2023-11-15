@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
-* parse_command - parses the command into program and arguments
+* parse_command - parses command into program and arguments
 *
-* @cmd: the command to parse
-* @argv: the array to store the program and arguments
+* @cmd: command to parse
+* @argv: array to store the program and arguments
 */
 void parse_command(char *cmd, char **argv)
 {

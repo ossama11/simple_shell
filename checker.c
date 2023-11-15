@@ -2,9 +2,9 @@
 
 
 /**
-* checker - checks if the shell is in interactive mode
+* checker - checks mode
 *
-* Return: 1 if in interactive mode, 0 otherwise
+* Return: 1 in inter mode, 0 other
 */
 int checker(void)
 {

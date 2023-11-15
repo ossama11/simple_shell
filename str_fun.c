@@ -1,7 +1,12 @@
 #include "main.h"
 
 
-
+/**
+* my_strlen - Computes the length of a string
+* @str: input string
+*
+* Return: length of the string.
+*/
 size_t my_strlen(const char *str)
 {
 	const char *s;
@@ -12,11 +17,11 @@ size_t my_strlen(const char *str)
 }
 
 /**
-* my_trdup - duplicates a string
+* my_strdup - duplicate string
 *
-* @str: the string to duplicate
+* @str: string to duplicate
 *
-* Return: a pointer to the newly allocated duplicated string.
+* Return: pointer.
 */
 char *my_strdup(const char *str)
 {
@@ -28,6 +33,14 @@ char *my_strdup(const char *str)
 
 	return (dup);
 }
+
+/**
+* my_strcmp - Compare two strings
+* @s1: first string
+* @s2: second string
+*
+* Return: result of the string comparison.
+*/
 
 int my_strcmp(char *s1, char *s2)
 {
@@ -43,27 +56,28 @@ int my_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-
+/**
+* my_strtok - Breaks a string
+* @str: string to be tokenized
+* @delim: delimiter characters
+* Return: next token from string
+*/
 char *my_strtok(char *str, const char *delim)
 {
 	static char *buffer;
 
 	char *token_start;
 
-
 	if (str != NULL)
 		buffer = str;
 
-
 	if (buffer == NULL || *buffer == '\0')
 		return (NULL);
-
 
 	while (*buffer != '\0' && my_strchr(delim, *buffer) != NULL)
 		buffer++;
 
 	token_start = buffer;
-
 
 	while (*buffer != '\0' && my_strchr(delim, *buffer) == NULL)
 		buffer++;
@@ -71,12 +85,18 @@ char *my_strtok(char *str, const char *delim)
 	if (*buffer == '\0')
 		return (token_start);
 
-
 	*buffer = '\0';
 	buffer++;
 
 	return (token_start);
 }
+
+/**
+* my_strchr - Locates the first occurrence
+* @str: string to be searched
+* @c: character to be located
+* Return: pointer
+*/
 
 char *my_strchr(const char *str, int c)
 {

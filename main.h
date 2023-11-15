@@ -21,8 +21,10 @@ extern char **environ;
 
 int main(void);
 void parse_command(char *cmd, char **argv);
+
 int checker(void);
 char *find_command(char *cmd);
+
 void print_env(void);
 int run_command(char **argv, char *full_path);
 
@@ -30,21 +32,29 @@ int run_command(char **argv, char *full_path);
 
 /* simple hundle hundle */
 void handle_env(char **argv);
+
 char *get_full_path(char **argv);
+
 void handle_exit(char **argv);
+
 char *my_getenv(const char *name);
 
 /*  str fun hundle */
 char *my_strdup(const char *str);
-size_t my_strlen(const char *str);
-int my_strcmp(char *s1, char *s2);
-char *my_strtok(char *str, const char *delim);
-char *my_strchr(const char *str, int c);
 
+size_t my_strlen(const char *str);
+
+int my_strcmp(char *s1, char *s2);
+
+char *my_strtok(char *str, const char *delim);
+
+char *my_strchr(const char *str, int c);
 
 /* strn fun hundle */
 int my_strncmp(const char *s1, const char *s2, size_t n);
+
 char *my_strncat(char *dest, const char *src, size_t n);
+
 char *my_strncpy(char *dest, const char *src, size_t n);
 
 /* mem func hundle */

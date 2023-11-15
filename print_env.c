@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-* get_environ - gets the environment
+* get_environ - get environment
 *
-* Return: pointer to the environment
+* Return: pointer the environment
 */
 char **get_environ(void)
 {
@@ -11,7 +11,7 @@ char **get_environ(void)
 }
 
 /**
-* print_env - prints the current environment
+* print_env - print the current environment
 *
 * Return: void
 */

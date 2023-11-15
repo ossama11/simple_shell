@@ -7,7 +7,7 @@
 *
 * @cmd: the command to find
 *
-* Return: a string containing the full path.
+* Return: string containing full path.
 */
 char *find_command(char *cmd)
 {
