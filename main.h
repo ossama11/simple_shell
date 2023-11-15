@@ -59,8 +59,7 @@ char *my_strncpy(char *dest, const char *src, size_t n);
 /* mem func hundle */
 void *my_memcpy(void *dest, const void *src, size_t n);
 
-/* atoi */
-int my_atoi(char *str);
+
 
 
 

@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* find_command - finds the command in the PATH
+* find_command - find command in the PATH
 *
 * @cmd: the command to find
 *

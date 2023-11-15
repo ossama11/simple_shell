@@ -92,7 +92,7 @@ char *my_strtok(char *str, const char *delim)
 }
 
 /**
-* my_strchr - Locates the first occurrence
+* my_strchr - Locatefirst occurrence
 * @str: string to be searched
 * @c: character to be located
 * Return: pointer
