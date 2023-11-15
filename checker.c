@@ -1,13 +1,12 @@
+
 #include "main.h"
 
-
 /**
-* checker - checks mode
+* checker - checks program running in interactive mode
 *
-* Return: 1 in inter mode, 0 other
+* Return: 1 interactive mode, 0 otherwise
 */
 int checker(void)
 {
 	return (isatty(STDIN_FILENO));
 }
-

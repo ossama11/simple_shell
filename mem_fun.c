@@ -1,20 +1,25 @@
 #include "main.h"
 
 /**
-* my_memcpy - Copy memory area from source to destination
-* @dest: Pointer to the destination memory area
-* @src: Pointer to the source.
-* @n: Number of bytes.
+* my_memcpy - Copy memory.
+* @dest: Pointer.
+* @src: Pointer.
+* @n: Number bytes.
 *
 * Return: Pointer to the destination memory
 */
+/* main.h */
+
 void *my_memcpy(void *dest, const void *src, size_t n)
 {
-	char *cdest = (char *)dest;
+	unsigned char *cdest = (unsigned char *)dest;
 
-	const char *csrc = (const char *)src;
+	const unsigned char *csrc = (const unsigned char *)src;
 
 	size_t i;
+
+	if (dest == NULL || src == NULL)
+		return (NULL);
 
 	for (i = 0; i < n; i++)
 		cdest[i] = csrc[i];

@@ -11,9 +11,8 @@
 
 
 #define MAX_CMD_LEN 100
-#define MAX_NUM_ARGS 10
 #define PROMPT "$ "
-
+#define MAX_NUM_ARGS 100
 
 extern char **environ;
 

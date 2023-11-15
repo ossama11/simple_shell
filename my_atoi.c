@@ -1,14 +1,18 @@
 #include "main.h"
 
 /**
- * my_atoi - Convert a string to an integer
- * @str: The string to convert
- *
- * Return: The converted integer value
- */
+* my_atoi - Convert string to integer
+* @str: string to convert
+*
+* Return: converted integer value
+*/
+
 int my_atoi(char *str)
 {
 	int result = 0, sign = 1, i = 0;
+
+	if (str == NULL || str[0] == '\0')
+		return (0);
 
 	if (str[0] == '-')
 	{
@@ -29,6 +33,11 @@ int my_atoi(char *str)
 	}
 
 	result *= sign;
+
+	if (str[i] != '\0')
+	{
+		return (0);
+	}
 
 	return (result);
 }

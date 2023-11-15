@@ -3,10 +3,10 @@
 
 
 /**
-* my_is_numeric - Check if a string consists only of numeric characters
-* @str: The string to check
+* my_is_numeric - Check.
+* @str: string to check
 *
-* Return: true if the string is numeric, false otherwise
+* Return: true numeric, false otherwise
 */
 bool my_is_numeric(char *str)
 {
@@ -23,8 +23,8 @@ bool my_is_numeric(char *str)
 }
 
 /**
-* handle_exit - Handles the "exit" command
-* @argv: array of command arguments
+* handle_exit - "exit" command
+* @argv: array.
 *
 */
 void handle_exit(char **argv)
@@ -56,10 +56,10 @@ void handle_exit(char **argv)
 }
 
 /**
-* get_full_path - Retrieves full path of command
-* @argv: The array of command line arguments
+* get_full_path - Retrieve path command
+* @argv: array.
 *
-* Return: full path of the command, or NULL if not found.
+* Return: full path
 */
 char *get_full_path(char **argv)
 {
@@ -76,8 +76,8 @@ char *get_full_path(char **argv)
 }
 
 /**
-* handle_env - Handles "env" command
-* @argv: The array of command line arguments
+* handle_env - "env" command
+* @argv: array.
 *
 */
 void handle_env(char **argv)
@@ -89,8 +89,8 @@ void handle_env(char **argv)
 }
 
 /**
-* my_getenv - Retrieves value of environment variable
-* @name: The name of the environment variable
+* my_getenv - value environment variable
+* @name: name.
 *
 * Return: value of the environment variable, or NULL if not found.
 */

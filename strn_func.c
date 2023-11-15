@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* my_strncmp - Compares two strings
+* my_strncmp - Compare two strings
 * @s1: first string
 * @s2: second string
 * @n:  maximum number of characters to compare
@@ -23,9 +23,9 @@ int my_strncmp(const char *s1, const char *s2, size_t n)
 }
 
 /**
-* my_strncpy - Copies a string up to a given number of characters
+* my_strncpy - Copies a string
 * @dest: destination
-* @src: source string
+* @src: source
 * @n: maximum number of characters to copy
 * Return: destination buffer.
 */

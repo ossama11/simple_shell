@@ -1,16 +1,18 @@
 #include "main.h"
 
 /**
-* parse_command - parses command into program and arguments
-*
+* parse_command - parse command
 * @cmd: command to parse
-* @argv: array to store the program and arguments
+* @argv: array
 */
 void parse_command(char *cmd, char **argv)
 {
 	char *token;
 
 	int i = 0;
+
+	if (cmd == NULL || argv == NULL)
+		return;
 
 	token = my_strtok(cmd, " ");
 	while (token != NULL && i < MAX_NUM_ARGS - 1)

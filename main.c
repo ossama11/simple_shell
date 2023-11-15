@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* main - main function for this simple shell
+* main - main
 *
 * Return: 0 on success
 */
@@ -23,10 +23,10 @@ int main(void)
 		read = getline(&cmd, &cmd_len, stdin);
 		if (read == -1)
 		{
-			write(STDOUT_FILENO, "\n", 1);
-			exit(EXIT_SUCCESS);
+			free(cmd);
+			write(0, "\n", 1);
+			return (0);
 		}
-
 		if (cmd[read - 1] == '\n')
 			cmd[read - 1] = '\0';
 
