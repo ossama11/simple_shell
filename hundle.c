@@ -24,7 +24,7 @@ char *get_full_path(char **argv)
 	if (full_path == NULL)
 	{
 		write(STDERR_FILENO, argv[0], my_strlen(argv[0]));
-		write(STDERR_FILENO, ": command not found\n", 20);
+		write(STDERR_FILENO, ": No such file or directory\n", 28);
 		return (NULL);
 	}
 
