@@ -22,5 +22,10 @@ void print_env(void)
 	int i;
 
 	for (i = 0; environ[i] != NULL; i++)
-		printf("%s\n", environ[i]);
+	{
+		size_t len = my_strlen(environ[i]);
+
+		write(STDOUT_FILENO, environ[i], len);
+		write(STDOUT_FILENO, "\n", 1);
+	}
 }

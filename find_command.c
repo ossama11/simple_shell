@@ -1,5 +1,7 @@
 #include "main.h"
 
+
+
 /**
 * find_command - finds the command in the PATH
 *
@@ -17,27 +19,31 @@ char *find_command(char *cmd)
 
 	char *full_path = malloc(MAX_CMD_LEN);
 
-	/* If cmd is already an absolute path, just return it */
-	if (cmd[0] == '/')
-		return (strdup(cmd));
+	char *slash = "/";
 
-	PATH = getenv("PATH");
-	path_copy = strdup(PATH);  /* Make a copy of PATH */
-	dir = strtok(path_copy, ":");
+	if (cmd[0] == '/')
+		return (my_strdup(cmd));
+
+	PATH = my_getenv("PATH");
+	path_copy = my_strdup(PATH);
+	dir = my_strtok(path_copy, ":");
 
 	while (dir != NULL)
 	{
-		sprintf(full_path, "%s/%s", dir, cmd);
-		if (access(full_path, X_OK) == 0)  /* Check if the command is executable */
+		my_strncpy(full_path, dir, MAX_CMD_LEN);
+		my_strncat(full_path, slash, MAX_CMD_LEN - my_strlen(full_path) - 1);
+		my_strncat(full_path, cmd, MAX_CMD_LEN - my_strlen(full_path) - 1);
+
+		if (access(full_path, X_OK) == 0)
 		{
 			free(path_copy);
 			return (full_path);
 		}
-		dir = strtok(NULL, ":");
+		dir = my_strtok(NULL, ":");
 	}
 
 	free(path_copy);
 	free(full_path);
+
 	return (NULL);
 }
-
