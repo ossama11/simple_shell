@@ -2,8 +2,8 @@
 
 /**
 * parse_command - parse command
-* @cmd: command to parse
-* @argv: array
+* @cmd: string to parse
+* @argv: array.
 */
 void parse_command(char *cmd, char **argv)
 {
@@ -14,12 +14,14 @@ void parse_command(char *cmd, char **argv)
 	if (cmd == NULL || argv == NULL)
 		return;
 
-	token = my_strtok(cmd, " ");
+	token = strtok(cmd, " \n\t\r");
 	while (token != NULL && i < MAX_NUM_ARGS - 1)
 	{
 		argv[i] = token;
 		i++;
-		token = my_strtok(NULL, " ");
+
+		token = strtok(NULL, " \n\t\r");
 	}
+
 	argv[i] = NULL;
 }
