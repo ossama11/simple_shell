@@ -4,26 +4,33 @@
 /**
 * handle_exit - Handles the "exit" command
 * @argv: array of command arguments
-*
+* @cmd : free cmd
 */
-void handle_exit(char **argv)
+void handle_exit(char *cmd, char **argv)
 {
 	if (my_strcmp(argv[0], "exit") == 0)
-		exit(EXIT_SUCCESS);
-}
+	{
+		int status = 0;
 
+		if (argv[1] != NULL)
+			status = my_atoi(argv[1]);
+
+		free(cmd);
+		exit(status);
+	}
+}
 
 /**
 * get_full_path - Retrieve path command
-* @argv: array.
+* @argv: Array of arguments
 *
-* Return: full path
+* Return: Full path
 */
 char *get_full_path(char **argv)
 {
 	char *full_path = find_command(argv[0]);
 
-	if (full_path == NULL)
+	if (full_path == NULL && my_strcmp(argv[0], "env") != 0)
 	{
 		write(STDERR_FILENO, argv[0], my_strlen(argv[0]));
 		write(STDERR_FILENO, ": No such file or directory\n", 28);
@@ -40,9 +47,11 @@ char *get_full_path(char **argv)
 */
 void handle_env(char **argv)
 {
+
 	if (my_strcmp(argv[0], "env") == 0)
 	{
 		print_env();
+
 	}
 }
 

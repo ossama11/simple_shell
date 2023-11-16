@@ -34,7 +34,7 @@ void handle_env(char **argv);
 
 char *get_full_path(char **argv);
 
-void handle_exit(char **argv);
+void handle_exit(char *cmd, char **argv);
 
 char *my_getenv(const char *name);
 
@@ -59,7 +59,8 @@ char *my_strncpy(char *dest, const char *src, size_t n);
 /* mem func hundle */
 void *my_memcpy(void *dest, const void *src, size_t n);
 
-
+/* my_atoi func*/
+int my_atoi(const char *str);
 
 
 

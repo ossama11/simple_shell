@@ -13,7 +13,6 @@ char **get_environ(void)
 /**
 * print_env - print current environment
 *
-* Return: void
 */
 void print_env(void)
 {
@@ -23,6 +22,7 @@ void print_env(void)
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		puts(environ[i]);
+		write(STDOUT_FILENO, environ[i], my_strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
 	}
 }

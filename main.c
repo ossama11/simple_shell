@@ -34,7 +34,7 @@ int main(void)
 			continue;
 
 		parse_command(cmd, argv);
-		handle_exit(argv);
+		handle_exit(cmd, argv);
 		handle_env(argv);
 
 		full_path = get_full_path(argv);
