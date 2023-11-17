@@ -67,6 +67,20 @@ void handle_env(char **argv)
 			}
 		}
 	}
+	else if (my_strcmp(argv[0], "setenv") == 0)
+	{
+		if (argv[1] == NULL || argv[2] == NULL)
+		{
+			write(STDERR_FILENO, "Invalid setenv command\n", 23);
+		}
+		else
+		{
+			if (setenv(argv[1], argv[2], 1) == -1)
+			{
+				write(STDERR_FILENO, "Failed to set environment variable\n", 35);
+			}
+		}
+	}
 }
 /**
 * my_getenv - value environment variable
