@@ -30,7 +30,9 @@ char *get_full_path(char **argv)
 {
 	char *full_path = find_command(argv[0]);
 
-	if (full_path == NULL && my_strcmp(argv[0], "env") != 0)
+	if (!full_path && my_strcmp(argv[0], "env")
+	&& my_strcmp(argv[0], "unsetenv")
+	&& my_strcmp(argv[0], "setenv"))
 	{
 		write(STDERR_FILENO, argv[0], my_strlen(argv[0]));
 		write(STDERR_FILENO, ": No such file or directory\n", 28);
@@ -47,14 +49,25 @@ char *get_full_path(char **argv)
 */
 void handle_env(char **argv)
 {
-
 	if (my_strcmp(argv[0], "env") == 0)
 	{
 		print_env();
-
+	}
+	else if (my_strcmp(argv[0], "unsetenv") == 0)
+	{
+		if (argv[1] == NULL)
+		{
+			write(STDERR_FILENO, "Invalid unsetenv command\n", 25);
+		}
+		else
+		{
+			if (my_unsetenv(argv[1]) == -1)
+			{
+				write(STDERR_FILENO, "Failed to unset environment variable\n", 37);
+			}
+		}
 	}
 }
-
 /**
 * my_getenv - value environment variable
 * @name: name.

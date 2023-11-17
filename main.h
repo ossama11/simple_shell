@@ -62,5 +62,9 @@ void *my_memcpy(void *dest, const void *src, size_t n);
 /* my_atoi func*/
 int my_atoi(const char *str);
 
+/* setenv and unsetenv func */
+int my_unsetenv(const char *name);
+
+
 
 #endif

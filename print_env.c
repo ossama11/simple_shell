@@ -26,3 +26,36 @@ void print_env(void)
 		write(STDOUT_FILENO, "\n", 1);
 	}
 }
+
+/**
+* my_unsetenv - Unset an environment variable.
+* @name: name of the variable to unset
+*
+* Return: 0 on success.
+*/
+int my_unsetenv(char *name)
+{
+	char **env;
+	char **dst;
+
+	if (name == NULL)
+		return (-1);
+
+	env = environ;
+
+	dst = env;
+
+	while (*env != NULL)
+	{
+		if (my_strcmp(name, *env) != 0)
+		{
+			*dst = *env;
+			dst++;
+		}
+
+		env++;
+	}
+	*dst = NULL;
+
+	return (0);
+}
