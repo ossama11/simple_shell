@@ -14,13 +14,13 @@ void parse_command(char *cmd, char **argv)
 	if (cmd == NULL || argv == NULL)
 		return;
 
-	token = my_strtok(cmd, " \n\t\r");
+	token = strtok(cmd, " \n\t\r");
 	while (token != NULL && i < MAX_NUM_ARGS - 1)
 	{
 		argv[i] = token;
 		i++;
 
-		token = my_strtok(NULL, " \n\t\r");
+		token = strtok(NULL, " \n\t\r");
 	}
 
 	argv[i] = NULL;
